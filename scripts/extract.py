@@ -1,9 +1,12 @@
-# Extract module
-# Load data from source systems
+def extract_data(source):
+    """
+    Extrae datos desde una fuente.
+    """
+    print(f"Extrayendo datos desde: {source}")
+    return {"status": "success", "rows": 1000}
 
-def extract():
-    """Extract data from source"""
-    pass
-
+# Test
 if __name__ == "__main__":
-    extract()
+    result = extract_data("database")
+    print(result)
+                      
