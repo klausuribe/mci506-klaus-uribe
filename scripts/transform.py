@@ -1,9 +1,8 @@
-# Transform module
-# Process and clean the extracted data
+import pandas as pd
+import os
 
-def transform():
-    """Transform and clean data"""
-    pass
+df = pd.read_parquet('data/raw/sales.parquet')
+result = df.groupby('producto')['venta'].sum().reset_index()
 
-if __name__ == "__main__":
-    transform()
+os.makedirs('data/processed', exist_ok=True)
+result.to_parquet('data/processed/sales_summary.parquet')
